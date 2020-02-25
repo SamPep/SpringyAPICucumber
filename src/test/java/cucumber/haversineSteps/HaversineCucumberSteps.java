@@ -1,7 +1,7 @@
 package cucumber.haversineSteps;
 
 import com.springyapi.HaversineFormula;
-import com.springyapi.SpringyApiApplication;
+import com.springyapi.SpringyAPIApplication;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -16,36 +16,43 @@ import static org.junit.Assert.assertEquals;
 
 public class HaversineCucumberSteps {
 
-    private static final Logger log = LoggerFactory.getLogger(SpringyApiApplication.class);
-    private DecimalFormat decimalFormat = new DecimalFormat("#.####");
+    private static final Logger log = LoggerFactory.getLogger(SpringyAPIApplication.class);
+    private DecimalFormat decimalFormat;
 
-    private double testLatitude;
-    private double testLongitude;
-
-    private double expectedResult = 1.2736;
+    private double latitude;
+    private double longitude;
     private double actualResult;
+    private double delta;
 
     @Before
     public void setUp() {
+        decimalFormat = new DecimalFormat("#.####");
         decimalFormat.setRoundingMode(RoundingMode.CEILING);
+
+        delta = 0.0002;
     }
 
-    @Given("A point exists on the map with a valid longitude and latitude.")
-    public void a_point_exists_on_the_map_with_a_valid_longitude_and_latitude() {
-        testLatitude = 51.7894;
-        testLongitude = 1.9282;
+    @Given("A point exists on the map with a valid latitude of {double} and longitude of {double}.")
+    public void aPointExistsOnTheMapWithAValidLatitudeAndLongitude(double latitude, double longitude) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    @Given("An invalid latitude of <latitude> and an invalid longitude of <longitude> are supplied.")
+    public void anInvalidLatitudeOfLatitudeAndAnInvalidLongitudeOfLongitudeAreSupplied() {
     }
 
     @When("The Haversine function is called.")
     public void the_Haversine_function_is_called() {
-        double result = HaversineFormula.haversine(testLatitude, testLongitude);
-        // actualResult = decimalFormat.format(result);
+        double result = HaversineFormula.haversine(latitude, longitude);
+        actualResult = Double.parseDouble(decimalFormat.format(result));
         log.info("Actual result from haversine formula: {}", actualResult);
     }
 
-    @Then("The correct distance from London is returned.")
-    public void the_correct_distance_from_London_is_returned() {
-        assertEquals(expectedResult, actualResult);
+    @Then("The correct expected result of {double} is returned as a distance from London.")
+    public void theExpectedResultIsReturnedAsADistanceFromLondon(double expectedResult) {
+        assertEquals(expectedResult, actualResult, delta);
     }
+
 
 }
