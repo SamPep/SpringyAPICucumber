@@ -2,26 +2,19 @@ package cucumber;
 
 import com.springyapi.models.User;
 
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 public class CommonSteps {
-    //  Any common cucumber steps are to go here.
 
-    private final int testId = 1;
-    private final String testFirstName = "John";
-    private final String testLastname = "Johnson";
-    private final String testEmail = "johnjohnson@john.john";
-    private final String TestIp = "1.1.1.1";
-    private final double testLat = 0.0;
-    private final double testLong = 0.0;
+    //  Any common functionality to go here.
 
-    public User createNewValidTestUser() {
-        return new User(
-                testId,
-                testFirstName,
-                testLastname,
-                testEmail,
-                TestIp,
-                testLat,
-                testLong
-        );
+    public static String readFile(String path) throws IOException {
+        Charset encoding = StandardCharsets.US_ASCII;
+        byte[] encoded = Files.readAllBytes(Paths.get(path));
+        return new String(encoded, encoding);
     }
 }

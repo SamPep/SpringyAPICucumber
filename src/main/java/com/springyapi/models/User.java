@@ -1,10 +1,8 @@
 package com.springyapi.models;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.io.Serializable;
 
 @Getter @Setter
 public class User {
@@ -25,33 +23,5 @@ public class User {
         this.ipAddress = ipAddress;
         this.latitude = latitude;
         this.longitude = longitude;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getFirstname() {
-        return first_name;
-    }
-
-    public String getLastname() {
-        return last_name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getIpAddress() {
-        return ipAddress;
-    }
-
-    public double getLatitude() {
-        return latitude;
-    }
-
-    public double getLongitude() {
-        return longitude;
     }
 }

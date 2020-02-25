@@ -1,7 +1,7 @@
 package cucumber.haversineSteps;
 
 import com.springyapi.HaversineFormula;
-import com.springyapi.SpringyApiApplication;
+import com.springyapi.SpringyAPIApplication;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
 
 public class HaversineCucumberSteps {
 
-    private static final Logger log = LoggerFactory.getLogger(SpringyApiApplication.class);
+    private static final Logger log = LoggerFactory.getLogger(SpringyAPIApplication.class);
     private DecimalFormat decimalFormat;
 
     private double latitude;
