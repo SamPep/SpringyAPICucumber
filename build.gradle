@@ -23,15 +23,21 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compile 'org.json:json:20171018'
+	compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	testImplementation 'io.cucumber:cucumber-java:5.4.0'
 	testCompile 'io.cucumber:cucumber-junit:5.4.0'
+
+	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'junit:junit:4.12'
+
 
 }
 
