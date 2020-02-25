@@ -1,0 +1,25 @@
+[{
+  "id": 1,
+  "first_name": "Test",
+  "last_name": "User1",
+  "email": "email@email.com",
+  "ip_address": "1.1.1.1",
+  "latitude": 51.4277,
+  "longitude": -0.2853
+}, {
+  "id": 2,
+  "first_name": "Test",
+  "last_name": "User2",
+  "email": "email@email.com",
+  "ip_address": "1.1.1.1",
+  "latitude": 51.4159,
+  "longitude": 0.0970
+}, {
+  "id": 3,
+  "first_name": "Test",
+  "last_name": "User3",
+  "email": "email@email.com",
+  "ip_address": "1.1.1.1",
+  "latitude": 51.2142,
+  "longitude": -0.2163
+}]
