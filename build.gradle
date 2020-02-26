@@ -34,6 +34,7 @@ dependencies {
 	}
 	testImplementation 'io.cucumber:cucumber-java:5.4.0'
 	testCompile 'io.cucumber:cucumber-junit:5.4.0'
+	testCompile group: 'org.easymock', name: 'easymock', version: '4.2'
 
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'junit:junit:4.12'
